@@ -92,7 +92,7 @@
                         </div>
                     </div>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">UPSC/UPPCS Exam</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Interview Programme</a>
                         <div class="dropdown-menu m-0">
                             <a href="{{ route('detail') }}" class="dropdown-item">UPSC</a>
                             <a href=" {{ route('feature') }}" class="dropdown-item">UPPCS</a>
@@ -100,7 +100,60 @@
                         </div>
                     </div>
                      <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Admission</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{{ route('detail') }}" class="dropdown-item">Study Material English</a>
+                            <a href=" {{ route('feature') }}" class="dropdown-item">Study Material Hindi</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="{{ route('loginPage') }}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Login</a>
+            </div>
+        </nav>
+    </div>
+
+
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0 px-lg-5">
+        
+            <div class="collapse navbar-collapse justify-content-between px-lg-3" id="navbarCollapse">
+                <div class="navbar-nav mx-auto py-0">
+                    {{-- <a href="{{ route('home') }}" class="nav-item nav-link active">Home</a> --}}
+                      <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Download Prospectus</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{{ route('detail') }}" class="dropdown-item">UPSC</a>
+                            <a href=" {{ route('feature') }}" class="dropdown-item">UPPCS</a>
+                           
+                        </div>
+                    </div>
+                      <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Study Materials</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{{ route('detail') }}" class="dropdown-item">UPSC</a>
+                            <a href=" {{ route('feature') }}" class="dropdown-item">UPPCS</a>
+                            <a href="{{ route('team') }}" class="dropdown-item">Open Test</a>
+                            <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonial</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Blogs</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{{ route('detail') }}" class="dropdown-item">UPSC</a>
+                            <a href=" {{ route('feature') }}" class="dropdown-item">UPPCS</a>
+                           
+                        </div>
+                    </div>
+                     <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Toppers Guidance</a>
+                        <div class="dropdown-menu m-0">
+                            <a href="{{ route('detail') }}" class="dropdown-item">Study Material English</a>
+                            <a href=" {{ route('feature') }}" class="dropdown-item">Study Material Hindi</a>
+                        </div>
+                    </div>
+
+                       <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">UPSC/UPPCS Exam</a>
                         <div class="dropdown-menu m-0">
                             <a href="{{ route('detail') }}" class="dropdown-item">Study Material English</a>
                             <a href=" {{ route('feature') }}" class="dropdown-item">Study Material Hindi</a>
@@ -120,7 +173,6 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('loginPage') }}" class="btn btn-primary py-2 px-4 d-none d-lg-block">Login</a>
             </div>
         </nav>
     </div>
