@@ -25,6 +25,13 @@
     <!-- Customized Bootstrap Stylesheet -->
     {{-- <link href="css/style.css" rel="stylesheet"> --}}
     <link href="{{ asset('withoutLogin/css/style.css') }}" rel="stylesheet">
+
+    <!-- Home page stylesheet -->
+     {{-- <link href="css/style.home.css" rel="stylesheet"> --}}
+     <link href="{{ asset('withoutLogin/css/slider.css') }}" rel="stylesheet">
+
+    
+
 </head>
 
 <body>
@@ -77,8 +84,8 @@
                       <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Classroom Programmes</a>
                         <div class="dropdown-menu m-0">
-                            <a href="{{ route('detail') }}" class="dropdown-item">UPSC</a>
-                            <a href=" {{ route('feature') }}" class="dropdown-item">UPPCS</a>
+                            <a href="{{ route('openclassroom') }}" class="dropdown-item">UPSC</a>
+                            <a href=" {{ route('uppcsclassroom') }}" class="dropdown-item">UPPCS</a>
                            
                         </div>
                     </div>
@@ -187,7 +194,7 @@
             <div class="row">
                 <div class="col-md-6 mb-5">
                     <a href="index.html" class="navbar-brand">
-                        <h1 class="mt-n2 text-uppercase text-white"><i class="fa fa-book-reader mr-3"></i>Edukate</h1>
+                        <h1 class="mt-n2 text-uppercase text-white"><i class="fa fa-book-reader mr-3"></i>PatrioticIAS</h1>
                     </a>
                     <p class="m-0">Accusam nonumy clita sed rebum kasd eirmod elitr. Ipsum ea lorem at et diam est, tempor rebum ipsum sit ea tempor stet et consetetur dolores. Justo stet diam ipsum lorem vero clita diam</p>
                 </div>
@@ -206,9 +213,9 @@
             <div class="row">
                 <div class="col-md-4 mb-5">
                     <h3 class="text-white mb-4">Get In Touch</h3>
-                    <p><i class="fa fa-map-marker-alt mr-2"></i>123 Street, New York, USA</p>
-                    <p><i class="fa fa-phone-alt mr-2"></i>+012 345 67890</p>
-                    <p><i class="fa fa-envelope mr-2"></i>info@example.com</p>
+                    <p><i class="fa fa-map-marker-alt mr-2"></i>Third Floor KV Tower, Padleyganj Road, Gorakhpur</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i> +91 9971932488</p>
+                    <p><i class="fa fa-envelope mr-2"></i> info@patrioticias.in</p>
                     <div class="d-flex justify-content-start mt-4">
                         <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-twitter"></i></a>
                         <a class="text-white mr-4" href="#"><i class="fab fa-2x fa-facebook-f"></i></a>
@@ -269,5 +276,9 @@
 
     <!-- Template Javascript -->
     <script src="{{ asset('withoutLogin/js/main.js') }}"></script>
+
+     <!-- Homepage script -->
+      <script src="{{ asset('withoutLogin/js/slider.js') }}"></script>
+
 </body>
 
