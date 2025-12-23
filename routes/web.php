@@ -5,6 +5,8 @@ use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Auth\PasswordResetController;
+use App\Http\Controllers\studentRegisterationController;
+use App\Http\Controllers\classRoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,9 +85,26 @@ Route::middleware('auth')->group(function () {
     })->middleware('throttle:6,1')->name('verification.send');
 });
 
+
+
+
+
+
 Route::middleware(['auth', 'active', 'verified', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', fn() => view('adminEnd.adminDashboard'))->name('admin.dashboard');
+    Route::get('/admin/register-student', [studentRegisterationController::class, 'showRegistrationForm'])->name('admin.registerStudentForm');
+    Route::get('/admin/load-students', [studentRegisterationController::class, 'showStudentLists'])->name('admin.loadStudents');
+    Route::get('/admin/create-course', [classRoomController::class, 'showCreateCourseForm'])->name('admin.createCourseForm');
+    Route::get('/admin/create-lecture', [classRoomController::class, 'showCreateLectureForm'])->name('admin.createLectureForm');
+    Route::get('/admin/manage-courses', [classRoomController::class, 'showManageCourse'])->name('admin.manageCourses');
+    Route::get('/admin/manage-lectures', [classRoomController::class, 'showManageLecture'])->name('admin.manageLectures');
 });
+
+
+
+
+
+
 
 Route::middleware(['auth', 'active', 'verified', 'role:student'])->group(function () {
     Route::get('/student/dashboard', fn() => view('studentEnd.studentDashboard'))->name('student.dashboard');
