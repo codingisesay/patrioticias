@@ -4,7 +4,7 @@
 
 
     <!-- Header Start -->
-  <div class="slideshow-container">
+ <div class="slideshow-container">
 
     <div class="mySlide">
         <img src="{{ asset('withoutLogin/img/banner.jpeg') }}">
@@ -17,42 +17,43 @@
     <div class="mySlide">
         <img src="{{ asset('withoutLogin/img/newbanner3.jpeg') }}">
     </div>
-     <div class="mySlide">
+
+    <div class="mySlide">
         <img src="{{ asset('withoutLogin/img/newbanner4.jpeg') }}">
+    </div>
+
+    <!-- Arrows -->
+    <a class="prev" onclick="plusSlides(-1)">❮</a>
+    <a class="next" onclick="plusSlides(1)">❯</a>
+
+    <!-- Dots -->
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
     </div>
 
 </div>
 
-  <section class="info-video-wrapper">
+  <!-- <section class="info-video-wrapper">
     <div class="info-video-grid">
 
-        <!-- LEFT SIDE -->
+        <!LEFT SIDE -->
         <div class="left-info">
 
             <!-- UPSC -->
             <div class="info-section">
                 <h3>UPSC Exam Informations Updates</h3>
 
-                @foreach($upscInfo as $item)
-                    <div class="info-item">
-                        <strong>{{ $item->title }}</strong>
-                        <p>{{ $item->description }}</p>
-                        <a href="{{ $item->link ?? '#' }}">Click here to know more & register</a>
-                    </div>
-                @endforeach
+             
             </div>
 
             <!-- UPPCS (JUST BELOW UPSC) -->
             <div class="info-section">
                 <h3>UPPCS Exam Informations Updates</h3>
 
-                @foreach($uppcsInfo as $item)
-                    <div class="info-item">
-                        <strong>{{ $item->title }}</strong>
-                        <p>{{ $item->description }}</p>
-                        <a href="{{ $item->link ?? '#' }}">Click here to know more & register</a>
-                    </div>
-                @endforeach
+              
             </div>
 
         </div>
@@ -64,34 +65,20 @@
             <div class="video-section">
                 <h3>Youtube Open Video</h3>
 
-                @if($openVideo)
-                <div class="video-box">
-                    <iframe
-                        src="https://www.youtube.com/embed/{{ $openVideo->youtube_id }}"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-                @endif
+               
             </div>
 
             <!-- LATEST VIDEOS -->
             <div class="video-section">
                 <h3>Live & Latest Videos</h3>
 
-                @foreach($latestVideos as $video)
-                    <div class="video-box mb">
-                        <iframe
-                            src="https://www.youtube.com/embed/{{ $video->youtube_id }}"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                @endforeach
+               
             </div>
 
         </div>
 
     </div>
-</section>
+</section> 
 
 <!-- Header End -->
 

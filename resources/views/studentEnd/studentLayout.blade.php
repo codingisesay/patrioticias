@@ -95,22 +95,46 @@
                   </ul>
                 </div>
               </li> --}}
-              <li class="nav-item">
+               <li class="nav-item">
                 <a href="widgets.html">
                   <i class="fas fa-desktop"></i>
                   <p>Dashboard</p>
+
+                </a>
+              </li>
+                <li class="nav-item">
+                <a href="widgets.html">
+                  <i class="fas fa-desktop"></i>
+                  <p>Classroom</p>
                  
                 </a>
-              <li class="nav-section">
-                <span class="sidebar-mini-icon">
-                  <i class="fa fa-ellipsis-h"></i>
-                </span>
-                <h4 class="text-section">Components</h4>
               </li>
-              <li class="nav-item">
+               <li class="nav-item">
+                <a href="widgets.html">
+                  <i class="fas fa-desktop"></i>
+                  <p>Prelims</p>
+                 
+                </a>
+              </li>
+               <li class="nav-item">
+                <a href="widgets.html">
+                  <i class="fas fa-desktop"></i>
+                  <p>Mains</p>
+                 
+                </a>
+              </li>
+               <li class="nav-item">
+                <a href="widgets.html">
+                  <i class="fas fa-desktop"></i>
+                  <p>Interview</p>
+                 
+                </a>
+              </li>
+              
+              {{-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#base">
                   <i class="fas fa-layer-group"></i>
-                  <p>Registration</p>
+                  <p>Classroom</p>
                   <span class="caret"></span>
                 </a>
                 <div class="collapse" id="base">
@@ -159,11 +183,11 @@
                       <a href="components/typography.html">
                         <span class="sub-item">Typography</span>
                       </a>
-                    </li> --}}
+                    </li> 
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#sidebarLayouts">
                   <i class="fas fa-th-list"></i>
                   <p>Classroom</p>
@@ -193,8 +217,8 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#forms">
                   <i class="fas fa-pen-square"></i>
                   <p>Prelims</p>
@@ -209,8 +233,8 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#tables">
                   <i class="fas fa-table"></i>
                   <p>Mains</p>
@@ -230,8 +254,8 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#maps">
                   <i class="fas fa-map-marker-alt"></i>
                   <p>Interview</p>
@@ -251,8 +275,8 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#charts">
                   <i class="far fa-chart-bar"></i>
                   <p>Resource</p>
@@ -272,8 +296,8 @@
                     </li>
                   </ul>
                 </div>
-              </li>
-              <li class="nav-item">
+              </li> --}}
+              {{-- <li class="nav-item">
                 <a href="widgets.html">
                   <i class="fas fa-desktop"></i>
                   <p>Course Bundling</p>
@@ -337,7 +361,7 @@
                     </li>
                   </ul>
                 </div>
-              </li>
+              </li> --}}
             </ul>
           </div>
         </div>

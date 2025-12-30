@@ -1,7 +1,8 @@
 .slideshow-container {
     width: 100%;
     overflow: hidden;
-    background: #000;   /* optional: black background */
+    background: #000;
+    position: relative;
 }
 
 .mySlide {
@@ -11,12 +12,51 @@
 
 .mySlide img {
     width: 100%;
-    height: 55vh;          /* height control */
-    max-height: 420px;     /* desktop limit */
-    object-fit: unset;   
-    background: #000;      /* gap fill */
+    height: 55vh;
+    max-height: 420px;
+    object-fit: unset;
+    background: #000;
     display: block;
     margin: 0 auto;
+}
+
+/* arrows */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 30px;
+    padding: 10px 15px;
+    cursor: pointer;
+    background: rgba(0,0,0,0.5);
+    border-radius: 50%;
+    user-select: none;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* dots */
+.dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 4px;
+    background: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background: #fff;
 }
 
 @media (max-width: 768px) {
