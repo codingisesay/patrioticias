@@ -125,7 +125,7 @@
                         <span class="sub-item">Manage Students</span>
                       </a>
                     </li>
-                    {{--<li>
+                    {{-- <li>
                       <a href="components/gridsystem.html">
                         <span class="sub-item">Grid System</span>
                       </a>
@@ -160,6 +160,64 @@
                         <span class="sub-item">Typography</span>
                       </a>
                     </li> --}}
+                  </ul>
+                </div>
+              </li>
+
+
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#base1">
+                  <i class="fas fa-layer-group"></i>
+                  <p>Configuration</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="base1">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{{ route('admin.addSubjectForm') }}">
+                        <span class="sub-item">Add Subject</span>
+                      </a>
+                    </li>
+                     <li>
+                      <a href="">
+                        <span class="sub-item">Add Exam Type</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/gridsystem.html">
+                        <span class="sub-item">Grid System</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/panels.html">
+                        <span class="sub-item">Panels</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/notifications.html">
+                        <span class="sub-item">Notifications</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/sweetalert.html">
+                        <span class="sub-item">Sweet Alert</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/font-awesome-icons.html">
+                        <span class="sub-item">Font Awesome Icons</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/simple-line-icons.html">
+                        <span class="sub-item">Simple Line Icons</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="components/typography.html">
+                        <span class="sub-item">Typography</span>
+                      </a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -287,6 +345,9 @@
                   <span class="badge badge-secondary">1</span>
                 </a>
               </li>
+
+
+
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#submenu">
                   <i class="fas fa-bars"></i>
@@ -338,6 +399,13 @@
                   </ul>
                 </div>
               </li>
+
+
+
+
+
+
+
             </ul>
           </div>
         </div>
