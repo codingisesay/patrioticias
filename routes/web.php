@@ -98,6 +98,8 @@ Route::middleware(['auth', 'active', 'verified', 'role:admin'])->group(function 
     Route::get('/admin/create-lecture', [classRoomController::class, 'showCreateLectureForm'])->name('admin.createLectureForm');
     Route::get('/admin/manage-courses', [classRoomController::class, 'showManageCourse'])->name('admin.manageCourses');
     Route::get('/admin/manage-lectures', [classRoomController::class, 'showManageLecture'])->name('admin.manageLectures');
+    Route::get('/admin/add-subject', [App\Http\Controllers\configController::class, 'loadAddSubjectForm'])->name('admin.addSubjectForm');
+    Route::post('/admin/store-subject', [App\Http\Controllers\configController::class, 'storeSubject'])->name('admin.storeSubject');
 });
 
 
