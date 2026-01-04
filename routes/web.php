@@ -10,6 +10,8 @@ use App\Http\Controllers\upscOpenClassroom;
 use App\Http\Controllers\uppcsopenclassroom;
 use App\Http\Controllers\studentRegisterationController;
 use App\Http\Controllers\classRoomController;
+use App\Http\Controllers\ConfigController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -107,6 +109,117 @@ Route::middleware(['auth', 'active', 'verified', 'role:admin'])->group(function 
     Route::get('/admin/create-lecture', [classRoomController::class, 'showCreateLectureForm'])->name('admin.createLectureForm');
     Route::get('/admin/manage-courses', [classRoomController::class, 'showManageCourse'])->name('admin.manageCourses');
     Route::get('/admin/manage-lectures', [classRoomController::class, 'showManageLecture'])->name('admin.manageLectures');
+    Route::get('/admin/add-subject', [App\Http\Controllers\configController::class, 'loadAddSubjectForm'])->name('admin.addSubjectForm');
+    Route::post('/admin/store-subject', [App\Http\Controllers\configController::class, 'storeSubject'])->name('admin.storeSubject');
+
+
+    Route::get('/admin/manage-subject', [configController::class, 'manageSubject'])
+    ->name('admin.manageSubject');
+
+Route::delete('/admin/delete-subject/{id}', [configController::class, 'deleteSubject'])
+    ->name('admin.deleteSubject');
+
+
+     // 👉 EDIT
+    Route::get('/admin/edit-subject/{id}', [configController::class, 'editSubject'])
+        ->name('admin.editSubject');
+
+    Route::put('/admin/update-subject/{id}', [configController::class, 'updateSubject'])
+        ->name('admin.updateSubject');
+
+
+
+    // 👉 Add Exam Type form
+    Route::get('/admin/add-exam-type', [ConfigController::class, 'loadAddExamTypeForm'])
+        ->name('admin.addExamType');
+
+    // 👉 Store Exam Type
+    Route::post('/admin/store-exam-type', [ConfigController::class, 'storeExamType'])
+        ->name('admin.storeExamType');
+
+
+        // Exam Type
+Route::get('/admin/manage-exam-type', [ConfigController::class, 'manageExamType'])
+    ->name('admin.manageExamType');
+
+Route::delete('/admin/delete-exam-type/{id}', [ConfigController::class, 'deleteExamType'])
+    ->name('admin.deleteExamType');
+
+
+// Edit Exam Type (Form)
+Route::get('/admin/edit-exam-type/{id}', [ConfigController::class, 'editExamType'])
+    ->name('admin.editExamType');
+
+// Update Exam Type
+Route::put('/admin/update-exam-type/{id}', [ConfigController::class, 'updateExamType'])
+    ->name('admin.updateExamType');
+
+  // Course Type
+    Route::get('/admin/add-course-type', [configController::class, 'loadAddCourseTypeForm'])
+        ->name('admin.addCourseType');
+
+    Route::post('/admin/store-course-type', [configController::class, 'storeCourseType'])
+        ->name('admin.storeCourseType');
+
+    Route::get('/admin/manage-course-type', [configController::class, 'manageCourseType'])
+        ->name('admin.manageCourseType');
+
+    Route::delete('/admin/delete-course-type/{id}', [configController::class, 'deleteCourseType'])
+        ->name('admin.deleteCourseType');
+
+
+          // Add Course Sub Type
+    Route::get('/add-course-sub-type',
+        [ConfigController::class, 'addCourseSubType']
+    )->name('admin.addCourseSubType');
+
+    // Store Course Sub Type
+    Route::post('/store-course-sub-type',
+        [ConfigController::class, 'storeCourseSubType']
+    )->name('admin.storeCourseSubType');
+
+
+     // Manage Course Sub Type
+    Route::get('/manage-course-sub-type',
+        [ConfigController::class, 'manageCourseSubType']
+    )->name('admin.manageCourseSubType');
+
+    // Delete Course Sub Type
+    Route::delete('/delete-course-sub-type/{id}',
+        [ConfigController::class, 'deleteCourseSubType']
+    )->name('admin.deleteCourseSubType');
+
+
+      // Edit Course Sub Type
+    Route::get(
+        '/edit-course-sub-type/{id}',
+        [ConfigController::class, 'editCourseSubType']
+    )->name('admin.editCourseSubType');
+
+    // Update Course Sub Type
+    Route::post(
+        '/update-course-sub-type/{id}',
+        [ConfigController::class, 'updateCourseSubType']
+    )->name('admin.updateCourseSubType');
+
+
+
+      // Counselling
+    Route::get('/admin/add-counselling', [ConfigController::class, 'addCounsellingForm'])
+        ->name('admin.addCounselling');
+
+    Route::post('/admin/store-counselling', [ConfigController::class, 'storeCounselling'])
+        ->name('admin.storeCounselling');
+
+    Route::get('/admin/manage-counselling', [ConfigController::class, 'manageCounselling'])
+        ->name('admin.manageCounselling');
+
+    // Route::get('/admin/edit-counselling/{id}', [ConfigController::class, 'editCounselling'])
+    //     ->name('admin.editCounselling');
+
+    // Route::post('/admin/update-counselling/{id}', [ConfigController::class, 'updateCounselling'])
+    //     ->name('admin.updateCounselling');
+
 });
 
 

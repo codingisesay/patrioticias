@@ -125,7 +125,7 @@
                         <span class="sub-item">Manage Students</span>
                       </a>
                     </li>
-                    {{--<li>
+                    {{-- <li>
                       <a href="components/gridsystem.html">
                         <span class="sub-item">Grid System</span>
                       </a>
@@ -160,6 +160,72 @@
                         <span class="sub-item">Typography</span>
                       </a>
                     </li> --}}
+                  </ul>
+                </div>
+              </li>
+
+
+              <li class="nav-item">
+                <a data-bs-toggle="collapse" href="#base1">
+                  <i class="fas fa-layer-group"></i>
+                  <p>Configuration</p>
+                  <span class="caret"></span>
+                </a>
+                <div class="collapse" id="base1">
+                  <ul class="nav nav-collapse">
+                    <li>
+                      <a href="{{ route('admin.addSubjectForm') }}">
+                        <span class="sub-item">Add Subject</span>
+                      </a>
+                    </li>
+                     <li>
+                      <a href="{{ route('admin.manageSubject') }}">
+                        <span class="sub-item">Manage subject</span>
+                      </a>
+                    </li>
+                    <li>
+                     <a href="{{ route('admin.addExamType') }}">
+                         <span class="sub-item">Exam type</span>
+                    </a>
+
+                    </li>
+                    <li>
+                      <a href="{{ route('admin.manageExamType') }}"
+                   class="{{ request()->is('admin/manage-exam-type') ? 'active' : '' }}">
+                    <span class="sub-item">Manage Exam Type</span>
+                </a>
+                    </li>
+                    <li>
+                      <a href="{{ route('admin.addCourseType') }}">
+                    <span class="sub-item">Course Type</span>
+                   </a>
+                    </li>
+                    <li>
+                      <a href="{{ route('admin.manageCourseType') }}">
+                        <span class="sub-item">Manage course type</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ route('admin.addCourseSubType') }}">
+                        <span class="sub-item">Course sub type</span>
+                      </a>
+                    </li>
+                    <li>
+                       <a href="{{ route('admin.manageCourseSubType') }}">
+                        <span class="sub-item">Manage course sub type</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{ route('admin.addCounselling') }}">
+                     <span class="sub-item">Counselling Student</span>
+                     </a>
+                    </li>
+
+                     <li>
+                      <a href="{{ route('admin.manageCounselling') }}">
+                     <span class="sub-item">Manage Counselling Student</span>
+                     </a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -287,6 +353,9 @@
                   <span class="badge badge-secondary">1</span>
                 </a>
               </li>
+
+
+
               <li class="nav-item">
                 <a data-bs-toggle="collapse" href="#submenu">
                   <i class="fas fa-bars"></i>
@@ -338,6 +407,13 @@
                   </ul>
                 </div>
               </li>
+
+
+
+
+
+
+
             </ul>
           </div>
         </div>
