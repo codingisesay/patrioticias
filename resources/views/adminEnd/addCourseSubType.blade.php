@@ -30,7 +30,7 @@
                             class="form-select @error('course_type_id') is-invalid @enderror">
                         <option value="">Select Course Type</option>
                         @foreach($courseTypes as $type)
-                            <option value="{{ $type->CourseTypeId }}"
+                            <option value="{{ $type->CourseTypeId }}">
                                 {{ old('course_type_id') == $type->CourseTypeId ? 'selected' : '' }}>
                                 {{ $type->CourseTypeName }}
                             </option>

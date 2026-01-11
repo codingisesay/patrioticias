@@ -41,6 +41,9 @@
 
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link rel="stylesheet" href="{{ asset('withLogin/assets/css/demo.css') }}" />
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
   </head>
   <body>
     <div class="wrapper">
@@ -238,22 +241,23 @@
                 <div class="collapse" id="sidebarLayouts">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ route('admin.createCourseForm') }}">
-                        <span class="sub-item">Create Course</span>
-                      </a>
+                   <a href="{{ route('admin.createCourse') }}">
+                    <span class="sub-item">Create Course</span>
+                     </a>
                     </li>
                      <li>
-                      <a href="{{ route('admin.manageCourses') }}">
+                      <a href="{{ route('admin.manageCourse') }}">
                         <span class="sub-item">Manage Courses</span>
                       </a>
                     </li>
                     <li>
-                      <a href="{{ route('admin.createLectureForm') }}">
-                        <span class="sub-item">Create Lecture</span>
+                      <a href="{{ route('admin.createLecture') }}">
+                       <span class="sub-item">Create Lecture</span>
                       </a>
+
                     </li>
                      <li>
-                      <a href="{{ route('admin.manageLectures') }}">
+                      <a href="{{ route('admin.manageLecture') }}">
                         <span class="sub-item">Manage Lectures</span>
                       </a>
                     </li>
@@ -269,8 +273,58 @@
                 <div class="collapse" id="forms">
                   <ul class="nav nav-collapse">
                     <li>
+                     <a href="{{ route('admin.prelims.createTestPaper') }}">
+                        <span class="sub-item">Create test paper</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="{{ route('admin.prelims.manageTestPaper') }}">
+                        <span class="sub-item">Manage Test Paper</span>
+                      </a>
+                    </li>
+
+
+                    <li>
                       <a href="forms/forms.html">
-                        <span class="sub-item">Basic Form</span>
+                        <span class="sub-item">Add Questions to Test</span>
+                      </a>
+                    </li>
+
+                     <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Manage Test Questions</span>
+                      </a>
+                    </li>
+
+                     <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Assign Prelims Test to Students</span>
+                      </a>
+                    </li>
+
+
+                     <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Manage Assigned Tests</span>
+                      </a>
+                    </li>
+
+                     <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Test Results</span>
+                      </a>
+                    </li>
+
+                     <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Student Wise Result</span>
+                      </a>
+                    </li>
+
+                     <li>
+                      <a href="forms/forms.html">
+                        <span class="sub-item">Rank / Score Analysis</span>
                       </a>
                     </li>
                   </ul>
@@ -347,12 +401,22 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../documentation/index.html">
+                <a href="{{ route('admin.addLiveVideo') }}">
                   <i class="fas fa-file"></i>
                   <p>Latest Session Video</p>
                   <span class="badge badge-secondary">1</span>
                 </a>
               </li>
+
+
+              <li class="nav-item">
+               <a href="{{ route('admin.manageLiveVideo') }}">
+                  <i class="fas fa-file"></i>
+                  <p>Manage Latest Session Video</p>
+                  <span class="badge badge-secondary">1</span>
+                </a>
+              </li>
+
 
 
 
@@ -850,6 +914,12 @@
     <!-- Kaiadmin DEMO methods, don't include it in your project! -->
     <script src="{{ asset('withLogin/assets/js/setting-demo.js') }}"></script>
     <script src="{{ asset('withLogin/assets/js/demo.js') }}"></script> --}}
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+@stack('scripts')
+
     @yield('scripts')
   </body>
 </html>

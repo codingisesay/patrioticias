@@ -384,5 +384,60 @@ public function updateCourseSubType(Request $request, $id)
     return view('adminEnd.manageCounsellingStudent', compact('counsellings'));
 }
 
+public function deleteCounselling($id)
+{
+    DB::table('counselling_student')
+        ->where('id', $id)
+        ->delete();
+
+    return redirect()
+        ->route('admin.manageCounselling')
+        ->with('success', 'Counselling deleted successfully');
+}        
+
+public function editCounselling($id)
+{
+    $counselling = DB::table('counselling_student')
+        ->where('id', $id)
+        ->first();
+
+    $courses = DB::table('course')->get();
+
+    return view(
+        'adminEnd.editCounsellingStudent',
+        compact('counselling', 'courses')
+    );
+}
+
+public function updateCounselling(Request $request, $id)
+{
+    $request->validate([
+        'course_id'          => 'required',
+        'enq_per_name'       => 'required|string|max:191',
+        'enq_per_email'      => 'required|email',
+        'enq_per_phone'      => 'required|string|max:50',
+        'enq_per_msg'        => 'required|string',
+        'counselling_status' => 'required|in:0,1',
+    ]);
+
+    DB::table('counselling_student')
+        ->where('id', $id)
+        ->update([
+            'course_id'           => $request->course_id,
+            'enq_per_name'        => $request->enq_per_name,
+            'enq_per_email'       => $request->enq_per_email,
+            'enq_per_phone'       => $request->enq_per_phone,
+            'enq_per_msg'         => $request->enq_per_msg,
+            'counselling_status'  => $request->counselling_status,
+            'counselling_comment' => $request->counselling_comment,
+            'counsellingDateTime' => $request->counsellingDateTime,
+            'updated_at'          => now(),
+        ]);
+
+    return redirect()
+        ->route('admin.manageCounselling')
+        ->with('success', 'Counselling updated successfully');
+}
+
 
 }

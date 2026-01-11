@@ -36,49 +36,47 @@
 
 </div>
 
-  <!-- <section class="info-video-wrapper">
-    <div class="info-video-grid">
+ <section class="py-5 bg-light">
+    <div class="container">
+        <div class="row g-4">
 
-        <!LEFT SIDE -->
-        <div class="left-info">
+            {{-- LEFT : Exam Information Updates --}}
+            <div class="col-lg-6 col-md-12">
+                <div class="info-box h-100">
+                    <h3 class="section-title">Exam Information Updates</h3>
 
-            <!-- UPSC -->
-            <div class="info-section">
-                <h3>UPSC Exam Informations Updates</h3>
-
-             
+                    <ul class="info-list">
+                        <li>UPSC Prelims 2025 Notification Released</li>
+                        <li>UPPCS Mains Exam Date Announced</li>
+                        <li>New Syllabus Update for GS Paper</li>
+                        <li>Optional Subject Strategy PDF Available</li>
+                    </ul>
+                </div>
             </div>
 
-            <!-- UPPCS (JUST BELOW UPSC) -->
-            <div class="info-section">
-                <h3>UPPCS Exam Informations Updates</h3>
+            {{-- RIGHT : Live / Latest Video --}}
+           <div class="col-lg-6 col-md-12">
+    <div class="video-box h-100">
+        <h3 class="section-title">Live & Latest Video</h3>
 
-              
+        @if($video && $video->VideoEmbedCodeEnglish)
+            <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+                <iframe
+                    src="{{ $video->VideoEmbedCodeEnglish }}"
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                    frameborder="0"
+                    allowfullscreen>
+                </iframe>
             </div>
-
-        </div>
-
-        <!-- RIGHT SIDE -->
-        <div class="right-video">
-
-            <!-- OPEN VIDEO -->
-            <div class="video-section">
-                <h3>Youtube Open Video</h3>
-
-               
+        @else
+            <div class="no-video">
+                <p>No live video available right now</p>
             </div>
-
-            <!-- LATEST VIDEOS -->
-            <div class="video-section">
-                <h3>Live & Latest Videos</h3>
-
-               
-            </div>
-
-        </div>
-
+        @endif
     </div>
-</section> 
+</div>
+
+</section>
 
 <!-- Header End -->
 

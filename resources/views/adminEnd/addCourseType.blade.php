@@ -64,7 +64,7 @@
                 {{-- OPTIONAL: STATUS --}}
                 <div class="mb-3">
                     <label class="form-label fw-semibold">
-                        Status <span class="text-muted">(Optional)</span>
+                        Status <span class="text-muted"></span>
                     </label>
                     <select name="status" class="form-select">
                         <option value="1" selected>Active</option>

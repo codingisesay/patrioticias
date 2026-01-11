@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\ExamSection;
 use App\Models\Video;
 
@@ -23,4 +24,16 @@ class HomeController extends Controller
 //             'latestVideos'
 //         ));
 //     }
+
+ public function index()
+    {
+        // Latest video (same logic jo LatestVideoController me hai)
+        $video = DB::table('liveandlatestsessionvideo')
+            ->orderBy('VideoId', 'desc')
+            ->first();
+
+        return view('home', compact('video'));
+    }
+
+
 }

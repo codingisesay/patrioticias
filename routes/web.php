@@ -10,7 +10,11 @@ use App\Http\Controllers\upscOpenClassroom;
 use App\Http\Controllers\uppcsopenclassroom;
 use App\Http\Controllers\studentRegisterationController;
 use App\Http\Controllers\classRoomController;
+use App\Http\Controllers\LectureController;
 use App\Http\Controllers\ConfigController;
+use App\Http\Controllers\LatestVideoController;
+use App\Http\Controllers\HandoutController;
+use App\Http\Controllers\prelimsController;
 
 
 /*
@@ -66,10 +70,16 @@ Route::post('/logout', [LoginController::class, 'logout'])
     ->middleware('auth')
     ->name('logout');
 
-// Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
     Route::get('/openclassroom', [upscOpenClassroom::class, 'index'])->name('openclassroom');
 Route::get('/openuppcsclassroom', [uppcsopenclassroom::class, 'index'])->name('uppcsclassroom');
+
+Route::get('/upsctestseries', [upscOpenClassroom::class, 'index'])->name('openclassroom');
+
+
+
+
 
 
 Route::middleware('auth')->group(function () {
@@ -105,10 +115,10 @@ Route::middleware(['auth', 'active', 'verified', 'role:admin'])->group(function 
     Route::get('/admin/dashboard', fn() => view('adminEnd.adminDashboard'))->name('admin.dashboard');
     Route::get('/admin/register-student', [studentRegisterationController::class, 'showRegistrationForm'])->name('admin.registerStudentForm');
     Route::get('/admin/load-students', [studentRegisterationController::class, 'showStudentLists'])->name('admin.loadStudents');
-    Route::get('/admin/create-course', [classRoomController::class, 'showCreateCourseForm'])->name('admin.createCourseForm');
-    Route::get('/admin/create-lecture', [classRoomController::class, 'showCreateLectureForm'])->name('admin.createLectureForm');
-    Route::get('/admin/manage-courses', [classRoomController::class, 'showManageCourse'])->name('admin.manageCourses');
-    Route::get('/admin/manage-lectures', [classRoomController::class, 'showManageLecture'])->name('admin.manageLectures');
+    // Route::get('/admin/create-course', [classRoomController::class, 'showCreateCourseForm'])->name('admin.createCourseForm');
+    // Route::get('/admin/create-lecture', [classRoomController::class, 'showCreateLectureForm'])->name('admin.createLectureForm');
+    // Route::get('/admin/manage-courses', [classRoomController::class, 'showManageCourse'])->name('admin.manageCourses');
+    // Route::get('/admin/manage-lectures', [classRoomController::class, 'showManageLecture'])->name('admin.manageLectures');
     Route::get('/admin/add-subject', [App\Http\Controllers\configController::class, 'loadAddSubjectForm'])->name('admin.addSubjectForm');
     Route::post('/admin/store-subject', [App\Http\Controllers\configController::class, 'storeSubject'])->name('admin.storeSubject');
 
@@ -120,7 +130,7 @@ Route::delete('/admin/delete-subject/{id}', [configController::class, 'deleteSub
     ->name('admin.deleteSubject');
 
 
-     // 👉 EDIT
+     //  EDIT
     Route::get('/admin/edit-subject/{id}', [configController::class, 'editSubject'])
         ->name('admin.editSubject');
 
@@ -129,11 +139,11 @@ Route::delete('/admin/delete-subject/{id}', [configController::class, 'deleteSub
 
 
 
-    // 👉 Add Exam Type form
+    //  Add Exam Type form
     Route::get('/admin/add-exam-type', [ConfigController::class, 'loadAddExamTypeForm'])
         ->name('admin.addExamType');
 
-    // 👉 Store Exam Type
+    // Store Exam Type
     Route::post('/admin/store-exam-type', [ConfigController::class, 'storeExamType'])
         ->name('admin.storeExamType');
 
@@ -214,11 +224,151 @@ Route::put('/admin/update-exam-type/{id}', [ConfigController::class, 'updateExam
     Route::get('/admin/manage-counselling', [ConfigController::class, 'manageCounselling'])
         ->name('admin.manageCounselling');
 
-    // Route::get('/admin/edit-counselling/{id}', [ConfigController::class, 'editCounselling'])
-    //     ->name('admin.editCounselling');
+        // DELETE COUNSELLING
+Route::delete(
+    '/admin/delete-counselling/{id}',
+    [ConfigController::class, 'deleteCounselling']
+)->name('admin.deleteCounselling');
 
-    // Route::post('/admin/update-counselling/{id}', [ConfigController::class, 'updateCounselling'])
-    //     ->name('admin.updateCounselling');
+
+    Route::get('/admin/edit-counselling/{id}', [ConfigController::class, 'editCounselling'])
+    ->name('admin.editCounselling');
+
+Route::post('/admin/update-counselling/{id}', [ConfigController::class, 'updateCounselling'])
+    ->name('admin.updateCounselling');
+
+
+
+//     /* ========= FRONTEND ========= */
+// Route::get('/latest-video', [LatestVideoController::class, 'latestVideo'])
+//     ->name('latest.video');
+
+
+
+//     /* ========= ADMIN ========= */
+
+//     Route::get('/add-latest-video', [LatestVideoController::class, 'create'])
+//         ->name('admin.addLatestVideo');
+
+//     Route::post('/store-latest-video', [LatestVideoController::class, 'store'])
+//         ->name('admin.storeLatestVideo');
+
+//     Route::get('/manage-latest-video', [LatestVideoController::class, 'index'])
+//         ->name('admin.manageLatestVideo');
+
+//     Route::delete('/delete-latest-video/{id}', [LatestVideoController::class, 'destroy'])
+//         ->name('admin.deleteLatestVideo');
+
+
+
+  // ADD FORM
+    Route::get('/add-latest-video', [LatestVideoController::class, 'create'])
+        ->name('admin.addLiveVideo');
+
+    // STORE
+    Route::post('/store-latest-video', [LatestVideoController::class, 'store'])
+        ->name('admin.storeLiveVideo');
+ // MANAGE
+    Route::get('/manage-latest-video', [LatestVideoController::class, 'index'])
+        ->name('admin.manageLiveVideo');
+
+    // DELETE (optional but useful)
+    Route::delete('/delete-latest-video/{id}', [LatestVideoController::class, 'destroy'])
+        ->name('admin.deleteLiveVideo');
+
+
+   Route::get('/create-course', [classRoomController::class, 'create'])
+    ->name('admin.createCourse');
+
+Route::post('/store-course', [classRoomController::class, 'store'])
+    ->name('admin.storeCourse');
+
+Route::get('/manage-course', [classRoomController::class, 'index'])
+    ->name('admin.manageCourse');
+
+    // EDIT FORM
+Route::get('/edit-course/{id}', [classRoomController::class, 'edit'])
+    ->name('admin.editCourse');
+
+// UPDATE
+Route::post('/update-course/{id}', [classRoomController::class, 'update'])
+    ->name('admin.updateCourse');
+
+
+
+
+    Route::get('/admin/create-lecture', [LectureController::class, 'create'])
+    ->name('admin.createLecture');
+
+Route::post('/admin/store-lecture', [LectureController::class, 'store'])
+    ->name('admin.storeLecture');
+
+// MANAGE LECTURE
+Route::get('/admin/manage-lecture', [LectureController::class, 'index'])
+    ->name('admin.manageLecture');
+
+Route::get('/admin/edit-lecture/{id}', [LectureController::class, 'edit'])
+    ->name('admin.editLecture');
+
+Route::post('/admin/update-lecture/{id}', [LectureController::class, 'update'])
+    ->name('admin.updateLecture');
+
+Route::get(
+    '/admin/lecture/{lectureId}/add-handout',
+    [HandoutController::class, 'create']
+)->name('admin.addHandout');
+
+Route::post(
+    '/admin/lecture/store-handout',
+    [HandoutController::class, 'store']
+)->name('admin.storeHandout');
+
+//  (Optional) View Handouts of a Lecture
+Route::get(
+    '/admin/lecture/{lectureId}/handouts',
+    [HandoutController::class, 'index']
+)->name('admin.viewHandouts');
+
+
+// Subjective Question
+Route::post(
+  '/admin/lecture/add-subjective-question',
+  [HandoutController::class, 'storeSubjectiveQuestion']
+)->name('admin.addSubjectiveQuestion');
+
+// Objective Question
+Route::post(
+  '/admin/lecture/add-objective-question',
+  [HandoutController::class, 'storeObjectiveQuestion']
+)->name('admin.addObjectiveQuestion');
+
+
+
+
+// prelims 
+
+    Route::get(
+        '/create-test-paper',
+        [prelimsController::class, 'createTestPaper']
+    )->name('admin.prelims.createTestPaper');
+
+    Route::post(
+        '/store-test-paper',
+        [prelimsController::class, 'storeTestPaper']
+    )->name('admin.prelims.storeTestPaper');
+
+
+
+// Manage
+Route::get(
+    '/admin/prelims/manage-test-paper',
+    [prelimsController::class, 'manageTestPaper']
+)->name('admin.prelims.manageTestPaper');
+// Delete Test Paper
+Route::get(
+    '/admin/prelims/delete-test-paper/{id}',
+    [prelimsController::class, 'deleteTestPaper']
+)->name('admin.prelims.deleteTestPaper');
 
 });
 
