@@ -103,7 +103,8 @@
                 </a>
               </li>
                 <li class="nav-item">
-                <a href="widgets.html">
+                <a href="{{ route('student.classroom') }}">
+
                   <i class="fas fa-desktop"></i>
                   <p>Classroom</p>
                  

@@ -3,10 +3,7 @@
 @section('content')
 <div class="container-fluid py-4">
 
-    <div class="mb-4">
-        <h4 class="fw-bold mb-1">Edit Course Sub Type</h4>
-        <p class="text-muted">Update course sub category details</p>
-    </div>
+    <h4 class="fw-bold mb-3">Edit Course Sub Type</h4>
 
     <div class="card shadow-sm border-0">
         <div class="card-body">
@@ -15,16 +12,10 @@
                   method="POST">
                 @csrf
 
-                {{-- Course Type --}}
+                {{-- Course Type (REQUIRED) --}}
                 <div class="mb-3">
-                    <label class="form-label fw-semibold">
-                        Course Type <span class="text-danger">*</span>
-                    </label>
-
-                    <select name="course_type_id"
-                            class="form-select @error('course_type_id') is-invalid @enderror">
-                        <option value="">Select Course Type</option>
-
+                    <label class="form-label fw-semibold">Course Type *</label>
+                    <select name="course_type_id" class="form-select" required>
                         @foreach($courseTypes as $type)
                             <option value="{{ $type->CourseTypeId }}"
                                 {{ $courseSubType->CourseTypeId == $type->CourseTypeId ? 'selected' : '' }}>
@@ -32,36 +23,33 @@
                             </option>
                         @endforeach
                     </select>
-
-                    @error('course_type_id')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
                 </div>
 
                 {{-- Course Sub Type Name --}}
-                <div class="mb-4">
-                    <label class="form-label fw-semibold">
-                        Course Sub Type Name <span class="text-danger">*</span>
-                    </label>
-
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Course Sub Type Name *</label>
                     <input type="text"
                            name="course_sub_type_name"
-                           class="form-control @error('course_sub_type_name') is-invalid @enderror"
-                           value="{{ old('course_sub_type_name', $courseSubType->CourseSubTypeName) }}">
-
-                    @error('course_sub_type_name')
-                        <div class="invalid-feedback">{{ $message }}</div>
-                    @enderror
+                           value="{{ $courseSubType->CourseSubTypeName }}"
+                           class="form-control"
+                           required>
                 </div>
 
-                {{-- Buttons --}}
-                <div class="d-flex justify-content-end gap-2">
+                {{-- Status --}}
+                <div class="mb-4">
+                    <label class="form-label fw-semibold">Status *</label>
+                    <select name="status" class="form-select" required>
+                        <option value="1" {{ $courseSubType->status == 1 ? 'selected' : '' }}>Active</option>
+                        <option value="0" {{ $courseSubType->status == 0 ? 'selected' : '' }}>Inactive</option>
+                    </select>
+                </div>
+
+                <div class="text-end">
                     <a href="{{ route('admin.manageCourseSubType') }}"
-                       class="btn btn-light">
+                       class="btn btn-secondary me-2">
                         Cancel
                     </a>
-
-                    <button class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary">
                         Update Course Sub Type
                     </button>
                 </div>

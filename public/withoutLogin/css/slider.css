@@ -104,3 +104,198 @@
 }
 
 
+
+
+
+.dropdown:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown-submenu {
+    position: relative;
+}
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-left: .1rem;
+    display: none;
+}
+.dropdown-submenu:hover > .dropdown-menu {
+    display: block;
+}
+.dropdown-submenu > a::after {
+    /* content: "›"; */
+    float: right;
+}
+
+
+
+/* Bootstrap multi level dropdown fix */
+.dropdown-submenu {
+    position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -1px;
+}
+
+/* Arrow same navbar jaisa */
+.dropdown-submenu > a::after {
+    /* content: "▶"; */
+    float: right;
+    margin-top: 4px;
+    font-size: 10px;
+}
+
+
+
+
+.about-section {
+    background: #f2f2f2;
+    padding: 60px 0;
+}
+
+.about-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.about-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.about-heading h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.about-heading p {
+    font-size: 16px;
+    color: #444;
+    margin-top: 6px;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* LEFT */
+.about-left {
+    text-align: center;
+}
+
+.about-logo img {
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 8px solid #ddd;
+}
+
+.vision-title {
+    margin-top: 18px;
+    color: #e74c3c;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.vision-text {
+    margin-top: 12px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #0b2c67;
+    font-style: italic;
+    text-align: left;
+}
+
+/* RIGHT */
+.about-right {
+    padding-top: 20px;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.info-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 15px;
+    color: #111;
+}
+
+.info-item .icon {
+    font-size: 22px;
+}
+
+.map-box {
+    border-radius: 10px;
+    overflow: hidden;
+    background: white;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Responsive */
+@media (max-width: 991px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .vision-text {
+        text-align: center;
+    }
+}
+
+
+.career-section {
+    padding: 80px 0;
+    background: #ffffff;
+}
+
+.career-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.career-text {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.career-email {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+.career-email a {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.career-email a:hover {
+    text-decoration: underline;
+}
+
+.career-img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+
+

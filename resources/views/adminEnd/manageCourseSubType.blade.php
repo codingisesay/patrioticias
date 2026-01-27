@@ -5,7 +5,7 @@
 
     <div class="mb-4">
         <h4 class="fw-bold mb-1">Manage Course Sub Type</h4>
-        <p class="text-muted">View and manage course sub categories</p>
+        <p class="text-muted mb-0">View and manage course sub categories</p>
     </div>
 
     @if(session('success'))
@@ -24,6 +24,7 @@
                         <th>#</th>
                         <th>Course Type</th>
                         <th>Course Sub Type</th>
+                        <th>Status</th>
                         <th class="text-end">Action</th>
                     </tr>
                 </thead>
@@ -41,15 +42,20 @@
                                 {{ $sub->CourseSubTypeName }}
                             </td>
 
+                            {{-- STATUS --}}
+                            <td>
+                                <span class="badge {{ $sub->status == 1 ? 'bg-success' : 'bg-danger' }}">
+                                    {{ $sub->status == 1 ? 'Active' : 'Inactive' }}
+                                </span>
+                            </td>
+
+                            {{-- ACTION --}}
                             <td class="text-end">
-                                {{-- Edit --}}
-                               <a href="{{ route('admin.editCourseSubType', $sub->CourseSubTypeId) }}"
-                                    class="btn btn-sm btn-outline-primary">
-                                                    Edit
+                                <a href="{{ route('admin.editCourseSubType', $sub->CourseSubTypeId) }}"
+                                   class="btn btn-sm btn-outline-primary me-2">
+                                    Edit
                                 </a>
 
-
-                                {{-- Delete --}}
                                 <form action="{{ route('admin.deleteCourseSubType', $sub->CourseSubTypeId) }}"
                                       method="POST"
                                       class="d-inline"
@@ -65,7 +71,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="4" class="text-center text-muted py-4">
+                            <td colspan="5" class="text-center text-muted py-4">
                                 No course sub types found
                             </td>
                         </tr>

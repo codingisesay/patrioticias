@@ -43,6 +43,12 @@
                     <small><i class="fa fa-phone-alt mr-2"></i>+91 9971932488</small>
                     <small class="px-3">|</small>
                     <small><i class="fa fa-envelope mr-2"></i>info@patrioticias.in</small>
+                     <!-- <a class="text-white px-2" href="">
+                        <small><i class="fas fa-map-marker-alt">Location</i></small>
+                    </a> -->
+                      <!-- <a class="text-white px-3" href="">
+                        <small><i class="fas fa-map-marker-alt">Patriotic IAS, 3rd Floor, KV Tower, Paidleyganj Road, Gorakhpur</i></small>
+                    </a> -->
                 </div>
             </div>
             <div class="col-lg-6 text-center text-lg-right">
@@ -84,20 +90,24 @@
                       <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Classroom Programmes</a>
                         <div class="dropdown-menu m-0">
-                            <a href="{{ route('openclassroom') }}" class="dropdown-item">UPSC</a>
-                            <a href=" {{ route('uppcsclassroom') }}" class="dropdown-item">UPPCS</a>
+                           <a href="{{ route('openclassroom') }}" class="dropdown-item">UPSC</a>
+                           <a href="{{ route('uppcsclassroom') }}" class="dropdown-item">UPPCS</a>
+
                            
                         </div>
                     </div>
-                      <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Test Series Pragramme</a>
+                     <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            Test Series Programme
+                        </a>
+
                         <div class="dropdown-menu m-0">
-                            <a href="{{ route('detail') }}" class="dropdown-item">UPSC</a>
-                            <a href=" {{ route('feature') }}" class="dropdown-item">UPPCS</a>
-                            <a href="{{ route('team') }}" class="dropdown-item">Open Test</a>
-                            <!-- <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonial</a> -->
+                            <a href="{{ route('testseries.upsc') }}" class="dropdown-item">UPSC</a>
+                            <a href="{{ route('testseries.uppcs') }}" class="dropdown-item">UPPCS</a>
+                            <a href="{{ route('testseries.open') }}" class="dropdown-item">Open Test</a>
                         </div>
                     </div>
+
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Interview Programme</a>
                         <div class="dropdown-menu m-0">
@@ -134,13 +144,55 @@
                            
                         </div>
                     </div>
-                      <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Study Materials</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            Study Materials
+                        </a>
+
                         <div class="dropdown-menu m-0">
-                            <a href="{{ route('detail') }}" class="dropdown-item">UPSC</a>
-                            <a href=" {{ route('feature') }}" class="dropdown-item">UPPCS</a>
-                            <a href="{{ route('team') }}" class="dropdown-item">Open Test</a>
-                            <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonial</a>
+
+                            
+                            <div class="dropdown-submenu">
+                                <a href="#" class="dropdown-item dropdown-toggle">
+                                    Study Material English
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">Syllabus</a>
+                                    <a href="#" class="dropdown-item">NCERTs</a>
+
+                                    <div class="dropdown-submenu">
+                                        <a href="#" class="dropdown-item dropdown-toggle">PYQs</a>
+                                        <div class="dropdown-menu">
+                                            <a href="#" class="dropdown-item">UPSC PYQs</a>
+                                            <a href="#" class="dropdown-item">UPPCS PYQs</a>
+                                        </div>
+                                    </div>
+
+                                    <a href="#" class="dropdown-item">Current Affairs</a>
+                                </div>
+                            </div>
+
+                            
+                            <div class="dropdown-submenu">
+                                <a href="#" class="dropdown-item dropdown-toggle">
+                                    Study Material Hindi
+                                </a>
+
+                                <div class="dropdown-menu">
+                                    <a href="#" class="dropdown-item">Syllabus</a>
+                                    <a href="#" class="dropdown-item">NCERTs</a>
+                                    <div class="dropdown-submenu">
+                                        <a href="#" class="dropdown-item dropdown-toggle">PYQs</a>
+                                        <div class="dropdown-menu">
+                                            <a href="#" class="dropdown-item">UPSC PYQs</a>
+                                            <a href="#" class="dropdown-item">UPPCS PYQs</a>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="dropdown-item">Current Affairs</a>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -160,12 +212,52 @@
                     </div>
 
                        <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">UPSC/UPPCS Exam</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">UPSC/UPPCS Exam Info.</a>
                         <div class="dropdown-menu m-0">
-                            <a href="{{ route('detail') }}" class="dropdown-item">Study Material English</a>
-                            <a href=" {{ route('feature') }}" class="dropdown-item">Study Material Hindi</a>
+                            <a href="{{ route('detail') }}" class="dropdown-item">UPSC Exam</a>
+                            <a href=" {{ route('feature') }}" class="dropdown-item">UPPCS Exam</a>
                         </div>
                     </div>
+
+
+
+                 <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                                UPSC/UPPCS PYQs
+                            </a>
+
+                            <div class="dropdown-menu m-0">
+
+                               
+                                <div class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        Mains
+                                    </a>
+                                    <!-- <div class="dropdown-menu">
+                                        <a href="{{ route('detail') }}" class="dropdown-item">GS Paper I</a>
+                                        <a href="{{ route('detail') }}" class="dropdown-item">GS Paper II</a>
+                                        <a href="{{ route('detail') }}" class="dropdown-item">GS Paper III</a>
+                                        <a href="{{ route('detail') }}" class="dropdown-item">GS Paper IV</a>
+                                    </div> -->
+                                </div>
+
+                                
+                                <div class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">
+                                        Prelims
+                                    </a>
+                                    <!-- <div class="dropdown-menu">
+                                        <a href="{{ route('feature') }}" class="dropdown-item">GS Paper I</a>
+                                        <a href="{{ route('feature') }}" class="dropdown-item">GS Paper II (CSAT)</a>
+                                        <a href="{{ route('feature') }}" class="dropdown-item">Sectional</a>
+                                        <a href="{{ route('feature') }}" class="dropdown-item">Subject Wise</a>
+                                    </div> -->
+                                </div>
+
+                            </div>
+                        </div>
+
+                    
                       <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">NCERT</a>
                         <div class="dropdown-menu m-0">

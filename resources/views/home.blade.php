@@ -78,6 +78,112 @@
 
 </section>
 
+
+
+<section class="about-section">
+    <div class="about-container">
+
+        <!-- Heading -->
+        <div class="about-heading">
+            <h2>About Us</h2>
+            <p>Know Us and Contact Us !</p>
+        </div>
+
+        <div class="about-grid">
+
+            <!-- LEFT SIDE -->
+            <div class="about-left">
+                <div class="about-logo">
+                    <img src="{{ asset('withoutLogin/img/logo.png') }}" alt="Logo">
+                </div>
+
+                <h3 class="vision-title">Our Vision</h3>
+
+                <p class="vision-text">
+                   PatrioticIAS is founded on the principle of providing quality education at an affordable cost, ensuring that candidates from all sections of society have access to top-notch preparation resources. We aim to bridge the gap between aspirants from different socioeconomic backgrounds by offering a holistic curriculum that covers every aspect of the UPSC/State PSC exams.
+                </p>
+            </div>
+
+            <!-- RIGHT SIDE -->
+            <div class="about-right">
+                <div class="contact-info">
+
+                    <div class="info-item">
+                        <span class="icon">📍</span>
+                        <span>Third Floor KV Tower, Padleyganj Road, Gorakhpur</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">📞</span>
+                        <span>Phone: +91 9971932488</span>
+                    </div>
+
+                    <div class="info-item">
+                        <span class="icon">✉️</span>
+                        <span>Email: info@patrioticias.in</span>
+                    </div>
+
+                </div>
+
+                <!-- MAP -->
+                <div class="map-box">
+                    <iframe
+                        src="https://www.google.com/maps?q=Gorakhpur%20Padleyganj%20KV%20Tower&output=embed"
+                        width="100%"
+                        height="320"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<section class="career-section">
+    <div class="container">
+        <div class="row align-items-center">
+
+            {{-- LEFT IMAGE --}}
+            <div class="col-md-6 text-center mb-4 mb-md-0">
+                <img src="{{ asset('withoutLogin/img/career.png') }}"
+                     alt="Career With Us"
+                     class="career-img">
+            </div>
+
+            {{-- RIGHT CONTENT --}}
+            <div class="col-md-6">
+                <h2 class="career-title">CAREER WITH US</h2>
+
+                <p class="career-text">
+                    We are committed to quality and integrity, and strongly believe
+                    the success of our students depend greatly on the competence
+                    and attitude of our experts. If you feel that you have the right
+                    mindset and also passion and dedication, do contact us.
+                    We always welcome fresh talent.
+                </p>
+
+                <p class="career-text">
+                    To become a part of Patriotic IAS Team, please send your resume to
+                </p>
+
+                <p class="career-email">
+                    <i class="fa fa-envelope"></i>
+                    <a href="mailto: info@patrioticias.in">
+                        info@patrioticias.in
+                    </a>
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
 <!-- Header End -->
 
 

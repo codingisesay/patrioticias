@@ -21,7 +21,7 @@
             <form action="{{ route('admin.storeCourseSubType') }}" method="POST">
                 @csrf
 
-                {{-- Course Type (REQUIRED) --}}
+                <!-- {{-- Course Type (REQUIRED) --}}
                 <div class="mb-3">
                     <label class="form-label fw-semibold">
                         Course Type <span class="text-danger">*</span>
@@ -40,7 +40,7 @@
                     @error('course_type_id')
                         <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
-                </div>
+                </div> -->
 
                 {{-- Course Sub Type Name (REQUIRED) --}}
                 <div class="mb-3">
@@ -58,13 +58,22 @@
                     @enderror
                 </div>
 
+                                    <div class="mb-3">
+                        <label>Status</label>
+                        <select name="status" class="form-control" required>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
+                        </select>
+                    </div>
+
+<!-- 
                 {{-- OPTIONAL UI FIELDS (DB me save nahi honge) --}}
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Description (Optional)</label>
                     <textarea class="form-control"
                               rows="3"
                               placeholder="Optional description (UI purpose only)"></textarea>
-                </div>
+                </div> -->
 
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-primary">

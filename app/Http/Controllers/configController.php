@@ -16,10 +16,13 @@ class ConfigController extends Controller
     {
         $data = $request->validate([
             'subject_name' => 'required|string|max:255',
+            'status'               => 'required|in:0,1',
+             
         ]);
 
         DB::table('subjects')->insert([
             'SubjectName' => $data['subject_name'],
+            'status'            => $data['status'],
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -50,12 +53,14 @@ public function updateSubject(Request $request, $id)
 {
     $data = $request->validate([
         'subject_name' => 'required|string|max:255',
+        'status'               => 'required|in:0,1',
     ]);
 
     DB::table('subjects')
         ->where('SubjectId', $id)
         ->update([
             'SubjectName' => $data['subject_name'],
+            'status'            => $data['status'],
             'updated_at' => now(),
         ]);
 
@@ -87,6 +92,7 @@ public function updateSubject(Request $request, $id)
     $data = $request->validate([
         // ✅ REQUIRED (DB required)
         'exam_name' => 'required|string|max:191',
+        'status'               => 'required|in:0,1',
         
 
         // 🔄 OPTIONAL
@@ -99,6 +105,8 @@ public function updateSubject(Request $request, $id)
 
     DB::table('examtype')->insert([
         'ExamTypeName' => $data['exam_name'],
+        'status'            => $data['status'],
+
         // 'exam_code'    => $data['exam_code'] ?? null,
         // 'stages'       => isset($data['stages']) ? json_encode($data['stages']) : null,
         // 'medium'       => $data['medium'] ?? null,
@@ -163,6 +171,8 @@ public function updateExamType(Request $request, $id)
         ->where('ExamTypeId', $id)
         ->update([
             'ExamTypeName' => $data['exam_name'],
+            'status'            => $data['status'],
+
             'updated_at'   => now(),
         ]);
 
@@ -186,10 +196,12 @@ public function updateExamType(Request $request, $id)
     {
         $data = $request->validate([
             'course_type_name' => 'required|string|max:191',
+            'status'      => 'required|in:0,1',
         ]);
 
         DB::table('coursetype')->insert([
             'CourseTypeName' => $data['course_type_name'],
+            'status'            => $data['status'],
             'created_at'     => now(),
             'updated_at'     => now(),
         ]);
@@ -226,8 +238,41 @@ public function updateExamType(Request $request, $id)
     }
 
 
+    
+      /* EDIT FORM */
+    public function editCourseType($id)
+    {
+        $courseType = DB::table('coursetype')
+            ->where('CourseTypeId', $id)
+            ->first();
 
-    public function addCourseSubType()
+        return view('adminEnd.editCourseType', compact('courseType'));
+    }
+
+    /* UPDATE */
+    public function updateCourseType(Request $request, $id)
+    {
+        $data = $request->validate([
+            'course_type_name' => 'required|string|max:191',
+            'status'      => 'required|in:0,1',
+        ]);
+
+        DB::table('coursetype')
+            ->where('CourseTypeId', $id)
+            ->update([
+                'CourseTypeName' => $data['course_type_name'],
+                'status'            => $data['status'],
+                'updated_at'     => now(),
+            ]);
+
+        return redirect()
+            ->route('admin.manageCourseType')
+            ->with('success', 'Course Type updated successfully');
+    }
+
+
+
+ public function addCourseSubType()
 {
     $courseTypes = DB::table('coursetype')
         ->orderBy('CourseTypeName')
@@ -236,16 +281,19 @@ public function updateExamType(Request $request, $id)
     return view('adminEnd.addCourseSubType', compact('courseTypes'));
 }
 
+
 public function storeCourseSubType(Request $request)
 {
     $data = $request->validate([
         'course_type_id'       => 'required|exists:coursetype,CourseTypeId',
         'course_sub_type_name' => 'required|string|max:191',
+        'status'               => 'required|in:0,1',
     ]);
 
     DB::table('coursesubtype')->insert([
         'CourseTypeId'      => $data['course_type_id'],
         'CourseSubTypeName' => $data['course_sub_type_name'],
+        'status'            => $data['status'],
         'created_at'        => now(),
         'updated_at'        => now(),
     ]);
@@ -256,6 +304,7 @@ public function storeCourseSubType(Request $request)
 }
 
 
+
 public function manageCourseSubType()
 {
     $subTypes = DB::table('coursesubtype as cst')
@@ -263,6 +312,7 @@ public function manageCourseSubType()
         ->select(
             'cst.CourseSubTypeId',
             'cst.CourseSubTypeName',
+            'cst.status',              // ✅ IMPORTANT
             'ct.CourseTypeName'
         )
         ->orderBy('cst.CourseSubTypeId', 'desc')
@@ -300,18 +350,21 @@ public function editCourseSubType($id)
 }
 
 
+
 public function updateCourseSubType(Request $request, $id)
 {
-    $request->validate([
+    $validated = $request->validate([
         'course_sub_type_name' => 'required|string|max:191',
         'course_type_id'       => 'required|integer',
+        'status'               => 'required|in:0,1',
     ]);
 
     DB::table('coursesubtype')
         ->where('CourseSubTypeId', $id)
         ->update([
-            'CourseSubTypeName' => $request->course_sub_type_name,
-            'CourseTypeId'      => $request->course_type_id,
+            'CourseSubTypeName' => $validated['course_sub_type_name'],
+            'CourseTypeId'      => $validated['course_type_id'],
+            'status'            => $validated['status'],
             'updated_at'        => now(),
         ]);
 
@@ -319,6 +372,7 @@ public function updateCourseSubType(Request $request, $id)
         ->route('admin.manageCourseSubType')
         ->with('success', 'Course Sub Type updated successfully');
 }
+
 
 /* ===============================
         ADD COUNSELLING FORM

@@ -9,7 +9,7 @@
     />
     <link
       rel="icon"
-      href="{{ asset('withLogin/assets/img/kaiadmin/favicon.ico') }}"
+      href="{{ asset('withLogin/assets/img/kaiadmin/logo.png') }}"
       type="image/x-icon"
     />
 
@@ -51,27 +51,35 @@
       <div class="sidebar" data-background-color="dark">
         <div class="sidebar-logo">
           <!-- Logo Header -->
-          <div class="logo-header" data-background-color="dark">
-            <a href="index.html" class="logo">
-              <img
-                src="{{ asset('withLogin/assets/img/kaiadmin/logo_light.svg') }}"
-                alt="navbar brand"
-                class="navbar-brand"
-                height="20"
-              />
-            </a>
-            <div class="nav-toggle">
-              <button class="btn btn-toggle toggle-sidebar">
-                <i class="gg-menu-right"></i>
-              </button>
-              <button class="btn btn-toggle sidenav-toggler">
-                <i class="gg-menu-left"></i>
-              </button>
-            </div>
-            <button class="topbar-toggler more">
-              <i class="gg-more-vertical-alt"></i>
-            </button>
-          </div>
+          <<div class="logo-header d-flex align-items-center justify-content-center"
+     data-background-color="dark"
+     style="flex-direction: column; text-align: center;">
+
+    <a href="{{ url('/admin/dashboard') }}" class="logo mb-1">
+        <img
+            src="{{ asset('withLogin/assets/img/kaiadmin/logo.png') }}"
+            alt="Patriotic IAS"
+            class="navbar-brand"
+            height="50"
+        />
+    </a>
+
+    <h3 class="m-0 text-white fw-bold" style="font-size: 16px;">
+        Patriotic IAS
+    </h3>
+
+    <!-- TOGGLE BUTTONS (SIDE ME ABSOLUTE) -->
+    <div class="nav-toggle position-absolute end-0 top-0 mt-2 me-2">
+        <button class="btn btn-toggle toggle-sidebar">
+            <i class="gg-menu-right text-white"></i>
+        </button>
+        <button class="btn btn-toggle sidenav-toggler">
+            <i class="gg-menu-left text-white"></i>
+        </button>
+    </div>
+
+</div>
+
           <!-- End Logo Header -->
         </div>
         <div class="sidebar-wrapper scrollbar scrollbar-inner">
@@ -119,12 +127,12 @@
                 <div class="collapse" id="base">
                   <ul class="nav nav-collapse">
                     <li>
-                      <a href="{{ route('admin.registerStudentForm') }}">
+                      <a href="{{ route('admin.registerStudent') }}">
                         <span class="sub-item">Register Student</span>
                       </a>
                     </li>
                      <li>
-                      <a href="{{ route('admin.loadStudents') }}">
+                      <a href="{{ route('admin.manageStudents') }}">
                         <span class="sub-item">Manage Students</span>
                       </a>
                     </li>
@@ -261,6 +269,21 @@
                         <span class="sub-item">Manage Lectures</span>
                       </a>
                     </li>
+
+
+                    <!-- <li>
+                        <a href="{{ route('admin.studentAssignCourse') }}">
+                        <i class="fa fa-user-plus"></i> 
+                        Student Assign Course   </a>
+                   </li>
+
+
+                    <li>
+                          <a href="{{ route('admin.student.assign.manage') }}">
+                            Manage Student Assign Course
+                         </a>
+                    </li> -->
+
                   </ul>
                 </div>
               </li>
@@ -287,16 +310,16 @@
 
                     <li>
                       <a href="forms/forms.html">
-                        <span class="sub-item">Add Questions to Test</span>
+                        <span class="sub-item">Add MCQ Questions</span>
                       </a>
                     </li>
 
                      <li>
                       <a href="forms/forms.html">
-                        <span class="sub-item">Manage Test Questions</span>
+                        <span class="sub-item">Manage MCQ Questions</span>
                       </a>
                     </li>
-
+<!-- 
                      <li>
                       <a href="forms/forms.html">
                         <span class="sub-item">Assign Prelims Test to Students</span>
@@ -326,7 +349,7 @@
                       <a href="forms/forms.html">
                         <span class="sub-item">Rank / Score Analysis</span>
                       </a>
-                    </li>
+                    </li> -->
                   </ul>
                 </div>
               </li>
@@ -394,10 +417,16 @@
                 </div>
               </li>
               <li class="nav-item">
-                <a href="widgets.html">
+                <a href="{{ route('admin.courseBundling') }}">
                   <i class="fas fa-desktop"></i>
                   <p>Course Bundling</p>
-                  <span class="badge badge-success">4</span>
+                  <span class="badge badge-success"></span>
+                </a>
+
+                 <a href="{{ route('admin.courseBundling.manage') }}">
+                  <i class="fas fa-desktop"></i>
+                  <p>Manage Course Bundling</p>
+                  <span class="badge badge-success"></span>
                 </a>
               </li>
               <li class="nav-item">

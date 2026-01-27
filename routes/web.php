@@ -15,7 +15,10 @@ use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\LatestVideoController;
 use App\Http\Controllers\HandoutController;
 use App\Http\Controllers\prelimsController;
-
+use App\Http\Controllers\StudentClassroomController;
+use App\Http\Controllers\StudentAssignCourseController;
+use App\Http\Controllers\TestSeriesController;
+use App\Http\Controllers\courseBundlingcontroller;;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,10 +75,24 @@ Route::post('/logout', [LoginController::class, 'logout'])
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    Route::get('/openclassroom', [upscOpenClassroom::class, 'index'])->name('openclassroom');
-Route::get('/openuppcsclassroom', [uppcsopenclassroom::class, 'index'])->name('uppcsclassroom');
+   Route::get('/openclassroom', [upscOpenClassroom::class, 'index'])
+    ->name('openclassroom');
 
-Route::get('/upsctestseries', [upscOpenClassroom::class, 'index'])->name('openclassroom');
+Route::get('/uppcsclassroom', [uppcsopenclassroom::class, 'index'])
+    ->name('uppcsclassroom');
+
+// Route::get('/upsctestseries', [upscOpenClassroom::class, 'index'])->name('openclassroom');
+
+
+// test series 
+Route::get('/test-series/upsc', [TestSeriesController::class, 'upsc'])
+    ->name('testseries.upsc');
+
+Route::get('/test-series/uppcs', [TestSeriesController::class, 'uppcs'])
+    ->name('testseries.uppcs');
+
+Route::get('/test-series/open-test', [TestSeriesController::class, 'openTest'])
+    ->name('testseries.open');
 
 
 
@@ -113,8 +130,26 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'active', 'verified', 'role:admin'])->group(function () {
     Route::get('/admin/dashboard', fn() => view('adminEnd.adminDashboard'))->name('admin.dashboard');
-    Route::get('/admin/register-student', [studentRegisterationController::class, 'showRegistrationForm'])->name('admin.registerStudentForm');
-    Route::get('/admin/load-students', [studentRegisterationController::class, 'showStudentLists'])->name('admin.loadStudents');
+
+
+
+    // Show registration form
+Route::get('/admin/register-student', 
+    [studentRegisterationController::class, 'showRegistrationForm']
+)->name('admin.registerStudent');
+
+// STORE student  ✅ (IMPORTANT)
+Route::post('/admin/register-student/store',
+    [studentRegisterationController::class, 'store']
+)->name('admin.registerStudent.store');
+
+
+// Student list
+Route::get('/admin/manage-students',
+    [studentRegisterationController::class, 'showStudentLists']
+)->name('admin.manageStudents');
+    // Route::get('/admin/register-student', [studentRegisterationController::class, 'showRegistrationForm'])->name('admin.registerStudentForm');
+    // Route::get('/admin/load-students', [studentRegisterationController::class, 'showStudentLists'])->name('admin.loadStudents');
     // Route::get('/admin/create-course', [classRoomController::class, 'showCreateCourseForm'])->name('admin.createCourseForm');
     // Route::get('/admin/create-lecture', [classRoomController::class, 'showCreateLectureForm'])->name('admin.createLectureForm');
     // Route::get('/admin/manage-courses', [classRoomController::class, 'showManageCourse'])->name('admin.manageCourses');
@@ -134,7 +169,7 @@ Route::delete('/admin/delete-subject/{id}', [configController::class, 'deleteSub
     Route::get('/admin/edit-subject/{id}', [configController::class, 'editSubject'])
         ->name('admin.editSubject');
 
-    Route::put('/admin/update-subject/{id}', [configController::class, 'updateSubject'])
+    Route::put('/admin/update-subject/{id}', [configController::class, 'updateSubject'])     
         ->name('admin.updateSubject');
 
 
@@ -173,6 +208,18 @@ Route::put('/admin/update-exam-type/{id}', [ConfigController::class, 'updateExam
 
     Route::get('/admin/manage-course-type', [configController::class, 'manageCourseType'])
         ->name('admin.manageCourseType');
+
+/* EDIT COURSE TYPE */
+Route::get(
+    '/admin/course-type/{id}/edit',
+    [ConfigController::class, 'editCourseType']
+)->name('admin.editCourseType');
+
+/* UPDATE COURSE TYPE */
+Route::put(
+    '/admin/course-type/{id}',
+    [ConfigController::class, 'updateCourseType']
+)->name('admin.updateCourseType');
 
     Route::delete('/admin/delete-course-type/{id}', [configController::class, 'deleteCourseType'])
         ->name('admin.deleteCourseType');
@@ -323,7 +370,7 @@ Route::post(
     [HandoutController::class, 'store']
 )->name('admin.storeHandout');
 
-//  (Optional) View Handouts of a Lecture
+// View Handouts of a Lecture
 Route::get(
     '/admin/lecture/{lectureId}/handouts',
     [HandoutController::class, 'index']
@@ -342,6 +389,22 @@ Route::post(
   [HandoutController::class, 'storeObjectiveQuestion']
 )->name('admin.addObjectiveQuestion');
 
+
+  Route::get('/student-assign-course', 
+        [App\Http\Controllers\StudentAssignCourseController::class, 'create']
+    )->name('admin.studentAssignCourse');
+
+    Route::post('/student-assign-course', 
+        [App\Http\Controllers\StudentAssignCourseController::class, 'store']
+    )->name('admin.studentAssignCourse.store');
+
+     // MANAGE
+    Route::get('/manage-student-assign-course', [StudentAssignCourseController::class, 'index'])
+        ->name('admin.student.assign.manage');
+
+    // (optional delete)
+    Route::delete('/student-assign-course/{id}', [StudentAssignCourseController::class, 'destroy'])
+        ->name('admin.student.assign.delete');
 
 
 
@@ -370,6 +433,39 @@ Route::get(
     [prelimsController::class, 'deleteTestPaper']
 )->name('admin.prelims.deleteTestPaper');
 
+
+    // form
+    Route::get('/admin/course-bundling',
+        [courseBundlingcontroller::class, 'index']
+    )->name('admin.courseBundling');
+
+    // Store bundling
+    Route::post('/admin/course-bundling/store',
+        [courseBundlingcontroller::class, 'store']
+    )->name('admin.courseBundling.store');
+
+    // Delete bundling
+    Route::delete('/admin/course-bundling/delete/{id}',
+        [courseBundlingcontroller::class, 'delete']
+    )->name('admin.courseBundling.delete');
+
+    // Manage bundling
+Route::get('/admin/course-bundling/manage',
+    [courseBundlingcontroller::class, 'manage']
+)->name('admin.courseBundling.manage');
+
+
+
+// Edit bundling
+Route::get('/admin/course-bundling/edit/{id}',
+    [courseBundlingcontroller::class, 'edit']
+)->name('admin.courseBundling.edit');
+
+// Update bundling
+Route::put('/admin/course-bundling/update/{id}',
+    [courseBundlingcontroller::class, 'update']
+)->name('admin.courseBundling.update');
+
 });
 
 
@@ -380,6 +476,18 @@ Route::get(
 
 Route::middleware(['auth', 'active', 'verified', 'role:student'])->group(function () {
     Route::get('/student/dashboard', fn() => view('studentEnd.studentDashboard'))->name('student.dashboard');
+
+// STUDENT CLASSROOM
+Route::get('/student/classroom', [StudentClassroomController::class, 'index'])
+    ->name('student.classroom');
+
+// COURSE VIEW 
+Route::get('/student/classroom/{courseId}', [StudentClassroomController::class, 'courseView'])
+    ->name('student.course.view');
+
+// LECTURE VIEW 
+Route::get('/student/lecture/{lectureId}', [StudentClassroomController::class, 'lectureView'])
+    ->name('student.lecture.view');
 });
 
 

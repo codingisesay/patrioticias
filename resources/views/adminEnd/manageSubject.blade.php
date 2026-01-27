@@ -39,11 +39,12 @@
                             <td class="fw-semibold">
                                 {{ $subject->SubjectName }}
                             </td>
-
-                            {{-- Status (default Active) --}}
-                            <td>
-                                <span class="badge bg-success">Active</span>
+                             <td>
+                                <span class="badge {{ $subject->status == 1 ? 'bg-success' : 'bg-danger' }}">
+                                    {{ $subject->status == 1 ? 'Active' : 'Inactive' }}
+                                </span>
                             </td>
+
 
                             <td class="text-end">
                                <a href="{{ route('admin.editSubject', $subject->SubjectId) }}"

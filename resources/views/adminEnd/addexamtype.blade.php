@@ -21,14 +21,14 @@
                     <label class="form-label fw-semibold">Exam Name *</label>
                     <input type="text" name="exam_name" class="form-control">
                 </div>
-
+<!-- 
                 {{-- Exam Code --}}
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Exam Code </label>
                     <input type="text" name="exam_code" class="form-control">
-                </div>
+                </div> -->
 
-                {{-- Stages --}}
+                <!-- {{-- Stages --}}
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Exam Stages </label>
                     <div class="d-flex gap-4">
@@ -36,7 +36,7 @@
                         <label><input type="checkbox" name="stages[]" value="Mains"> Mains</label>
                         <label><input type="checkbox" name="stages[]" value="Interview"> Interview</label>
                     </div>
-                </div>
+                </div> -->
 
                 {{-- Medium --}}
                 <div class="mb-3">
@@ -49,11 +49,11 @@
                     </select>
                 </div>
 
-                {{-- Description --}}
+                <!-- {{-- Description --}}
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Description</label>
                     <textarea name="description" class="form-control" rows="3"></textarea>
-                </div>
+                </div> -->
 
                 {{-- Status --}}
                 <div class="mb-4">

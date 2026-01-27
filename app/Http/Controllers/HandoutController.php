@@ -40,4 +40,33 @@ class HandoutController extends Controller
     ));
 }
 
+
+
+  // ✅ STORE HANDOUT
+
+  
+    public function store(Request $request)
+    {
+        $request->validate([
+            'LectureId'   => 'required',
+            'title'       => 'required|string',
+            'description' => 'nullable|string',
+            'file'        => 'required|file|mimes:pdf,doc,docx'
+        ]);
+
+        $filePath = $request->file('file')
+            ->store('handouts', 'public');
+
+        DB::table('lecturehandout')->insert([
+            'LectureId'  => $request->LectureId,
+            'Title'      => $request->title,
+            'FilePath'   => $filePath,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return redirect()
+            ->back()
+            ->with('success', 'Handout uploaded successfully');
+    }
 }
